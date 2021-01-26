@@ -1,0 +1,611 @@
+
+.tableClaimsTable {
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 0px;
+  padding-bottom: 56px;
+  strong {
+    font-weight: normal;
+  }
+  &__btns {
+    margin-top: 24px;
+    .rd--button {
+      height: 44px;
+      width: 100%;
+      &.hasBgRed:hover {
+        box-shadow: initial;
+      }
+    }
+    &--delete {
+      color: $acian;
+      margin-top: 12px;
+      .rd--button-icon-left {
+        display: none;
+      }
+      &:hover {
+        color: $acian2;
+        svg {
+          path {
+            fill: $acian2;
+          }
+        }
+      }
+    }
+  }
+  &__info {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 32px;
+    > div {
+      padding-top: 4px;
+    }
+    p {
+      font-family: $roboto;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 24px;
+      color: $gray2;
+      margin-left: 8px;
+    }
+  }
+  &__text {
+    padding-top: 48px;
+  }
+  &__result {
+    display: none;
+    &--mobile {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    &-text {
+      font-family: $roboto;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 28px;
+      color: $gray2;
+    }
+    &-filter {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      color: $acian;
+      p {
+        font-family: $lato;
+        font-style: normal;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        margin-left: 8px;
+        font-weight: normal;
+      }
+      &:hover {
+        color: $acian2;
+      }
+    }
+  }
+  &__table {
+    &--mobile {
+      &-separator {
+        background-color: $gray5;
+        height: 1px;
+        width: 100%;
+        margin-bottom: 26px;
+      }
+      &-label {
+        font-family: $lato;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        color: $gray3;
+        margin-bottom: 4px;
+      }
+      &-labelValue {
+        font-family: $roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 28px;
+        color: $gray;
+        margin-bottom: 10px;
+      }
+    }
+    &-row {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 32px;
+      border: 3px solid $gray6;
+      box-sizing: border-box;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      &-icon {
+        position: absolute;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 95px;
+        height: 25px;
+        right: 32px;
+        top: 100px;
+        cursor: pointer;
+        transition: 0.3s all ease-in;
+        font-family: $lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 17px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        color: $acian;
+        svg {
+          margin-left: 5px;
+        }
+        &.active {
+          svg {
+            transform: rotateX(185deg);
+          }
+        }
+      }
+      &-content {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        &.active {
+          height: initial !important;
+        }
+      }
+    }
+    &-header {
+      display: none;
+    }
+    &-column {
+      margin-bottom: 8px;
+      svg.svgAnulate {
+        fill: $gray3;
+      }
+      svg.svgDownload {
+        fill: $acian;
+      }
+      &.state {
+        order: 3;
+        margin-bottom: 26px;
+      }
+      &.claimant {
+        order: 4;
+      }
+      &.insurance {
+        order: 1;
+      }
+      &.nroClaim {
+        order: 2;
+      }
+      &.registerDate {
+        order: 5;
+      }
+      &.actions {
+        order: 7;
+        margin-top: 5px;
+        .tableClaimsTable__dependent {
+          font-family: $lato;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 16px;
+          text-transform: uppercase;
+          color: $acian;
+          align-items: center;
+          display: flex;
+          cursor: pointer;
+          font-size: 12px;
+          letter-spacing: 0.6px;
+          svg {
+            margin-right: 9px;
+          }
+          @include media(desktop) {
+            font-size: 10px;
+            letter-spacing: 0.8px;
+          }
+        }
+      }
+      &.actionsTwo {
+        order: 10;
+        margin-bottom: 0px;
+        margin-top: 8px;
+        .tableClaimsTable__dependent {
+          font-family: $lato;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 16px;
+          text-transform: uppercase;
+          color: $acian;
+          align-items: center;
+          display: flex;
+          cursor: pointer;
+          font-size: 12px;
+          letter-spacing: 0.6px;
+          &--delete {
+            color: $gray3;
+          }
+          svg {
+            margin-right: 9px;
+          }
+          @include media(desktop) {
+            font-size: 10px;
+            letter-spacing: 0.8px;
+          }
+        }
+      }
+      &.loading {
+        /* margin-bottom: 16px; */
+      }
+      &--desktop {
+        display: none;
+      }
+    }
+    &-nroClaim {
+      font-family: $roboto;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 28px;
+      color: $gray;
+    }
+    &-insurance {
+      font-family: $lato;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 28px;
+      color: $gray;
+    }
+  }
+  .tag {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    background: $green3;
+    border-radius: 20px;
+    width: max-content;
+    padding: 2px 8px;
+    margin-bottom: 0;
+    &.success {
+      background: $green3;
+      .tag__circle {
+        background: $green;
+      }
+      .tag__text {
+        color: $green;
+      }
+    }
+    &.warning {
+      background: $orange3;
+      .tag__circle {
+        background: $orange;
+      }
+      .tag__text {
+        color: $orange;
+      }
+    }
+    &.error {
+      background: $red4;
+      .tag__circle {
+        background: $red;
+      }
+      .tag__text {
+        color: $red;
+      }
+    }
+    &.default {
+      background: $gray6;
+      .tag__circle {
+        background: $gray3;
+      }
+      .tag__text {
+        color: $gray3;
+      }
+    }
+    &__circle {
+      width: 6px;
+      height: 6px;
+      background: $green;
+      border-radius: 50%;
+      margin-right: 4px;
+    }
+    &__text {
+      font-family: $lato;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 10px;
+      line-height: 16px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: $green;
+    }
+  }
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  &__not {
+    &-found {
+      display: flex;
+      justify-content: center;
+      max-width: 248px;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+      &-message {
+        font-family: $lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: $gray3;
+        margin-bottom: 8px;
+        margin-top: 16px;
+      }
+      &-text {
+        font-family: $roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 28px;
+        text-align: center;
+        color: $gray3;
+      }
+    }
+  }
+  &__dependent {
+    font-family: $roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 20px;
+    color: $gray3;
+    letter-spacing: 0;
+  }
+  @include media(desktop) {
+    padding-top: 0px;
+    padding-bottom: 96px;
+    padding-left: 0px;
+    padding-right: 0px;
+    &__not {
+      &-found {
+        flex-direction: row;
+        max-width: initial;
+        align-items: center;
+        margin-top: 8px;
+      }
+      &-message {
+        margin: 0;
+        margin-left: 16px;
+      }
+      &-text {
+        display: none;
+      }
+    }
+    &__btns {
+      display: flex;
+      margin-top: 0;
+      .rd--button {
+        width: initial;
+        height: 32px;
+        font-size: 10px;
+      }
+      &--edit {
+        width: 88px;
+        padding-left: 24px;
+        padding-right: 24px;
+        letter-spacing: 0.8px;
+        max-width: 88px;
+        min-width: 88px;
+      }
+      &--delete {
+        padding-left: 0;
+        margin-left: 24px;
+        color: $gray3;
+        margin-top: 0;
+        .rd--button-icon-left {
+          display: block;
+          line-height: 0;
+          margin-right: 8px;
+        }
+        &:hover {
+          transition: none;
+
+          .rd--button-icon-left {
+            transition: none;
+
+            svg {
+              transition: none;
+
+              path {
+                transition: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    &__line {
+      height: 1px;
+      background: $gray5;
+      margin: 8px 0 32px 0;
+    }
+    &__filters {
+      padding-top: 64px;
+      display: block;
+      &-options {
+        display: flex;
+      }
+      &-option {
+        width: 100%;
+        margin-bottom: 8px;
+        margin-right: 32px;
+        &:last-child {
+          margin-right: 0;
+        }
+        .rd--skeleton {
+          max-width: 100% !important;
+        }
+      }
+      &-title {
+        font-family: $lato;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 28px;
+        color: $gray;
+        margin-bottom: 32px;
+      }
+      &-clean {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-family: $lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        color: $gray3;
+        margin-bottom: 24px;
+        cursor: pointer;
+        &:hover {
+          color: $acian2;
+        }
+      }
+    }
+    &__text {
+      padding-top: 0;
+    }
+    &__result {
+      font-family: $roboto;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 28px;
+      color: $gray2;
+      margin-bottom: 8px;
+      display: block;
+      &--mobile {
+        display: none;
+      }
+    }
+    &__info {
+      > div {
+        padding-top: 0;
+      }
+      align-items: center;
+      margin-bottom: 22px;
+    }
+    &__table {
+      &-row {
+        border: none;
+        flex-direction: row;
+        border-bottom: 1px solid $gray5;
+        padding: 10px 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        height: 64px;
+        &-icon {
+          display: none;
+        }
+        &-content {
+          flex-direction: row;
+          height: initial !important;
+          align-items: center;
+        }
+      }
+      &-header {
+        display: flex;
+        align-items: center;
+        .tableClaimsTable__table-column {
+          color: $gray3;
+          font-family: $lato;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 12px;
+          line-height: 16px;
+          letter-spacing: 0.6px;
+          text-transform: uppercase;
+        }
+      }
+      &-column {
+        margin-right: 32px;
+        margin-bottom: 0;
+        font-family: $roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        color: $gray;
+        &.state {
+          min-width: 128px;
+          max-width: 128px;
+          order: initial;
+          margin-bottom: 0;
+        }
+        &.claimant {
+          order: initial;
+          min-width: 160px;
+          max-width: 160px;
+        }
+        &.insurance {
+          order: initial;
+          min-width: 160px;
+          max-width: 160px;
+        }
+        &.nroClaim {
+          order: initial;
+          min-width: 128px;
+          max-width: 128px;
+        }
+        &.registerDate {
+          order: initial;
+          min-width: 96px;
+          max-width: 96px;
+        }
+        &.refund {
+          min-width: 88px;
+          max-width: 88px;
+          order: initial;
+        }
+        &.actions {
+          order: initial;
+          min-width: 140px;
+        }
+        &.actionsTwo {
+          order: initial;
+          min-width: 115px;
+        }
+        &--mobile {
+          display: none;
+        }
+        &--desktop {
+          display: block;
+        }
+      }
+      &-link {
+        font-size: 10px;
+      }
+    }
+    &__pagination {
+      justify-content: flex-end;
+    }
+  }
+}
